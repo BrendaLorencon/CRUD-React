@@ -2,11 +2,11 @@ header {
   display: flex;
   height: 100px;
   align-items: center;
+  justify-content: left;
   border-bottom: 1px solid #ccc;
-}
 
-header,
-h1 {
-  display: flex;
-  font-family: "Lexend", sans-serif;
+  h1 {
+    display: flex;
+    font-family: "Lexend", sans-serif;
+  }
 }

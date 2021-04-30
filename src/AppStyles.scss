@@ -1,0 +1,29 @@
+.buttons-action {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5%;
+  padding: 3px;
+
+  button:nth-child(1) {
+    margin-right: auto;
+  }
+}
+
+.filter-table {
+  display: inline-block;
+  padding: 4px;
+  border: 1px solid #3f3e3e;
+  border-radius: 20px;
+
+  svg {
+    margin-left: 6px;
+    color: #3f3e3e;
+    margin-right: 5px;
+    height: 100%;
+  }
+
+  input {
+    border: none;
+    outline: 0;
+  }
+}
