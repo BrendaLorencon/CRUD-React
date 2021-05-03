@@ -6,4 +6,10 @@ button {
   font-size: 12px;
   padding: 3px 20px;
   font-family: "Lexend", sans-serif;
+  transition: background 0.12s;
+
+  &:hover {
+    background: #00bfff;
+    cursor: pointer;
+  }
 }
