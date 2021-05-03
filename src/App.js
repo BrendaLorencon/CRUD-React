@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <div className="buttons-action">
-        <Button title="Incluir" />
+        <Button title="Incluir"/>
         <Button title="Valores por estado" />
         <Button title="Maiores rendas" />
       </div>
@@ -24,18 +24,6 @@ function App() {
       <Table />
       
     </>
-    // <div>
-    //   <button type="submit">Incluir</button>
-    //   <button type="button">Valores por estado</button>
-    //   <button type="button">Maiores Rendas</button>
-    // </div>
-
-    // <tr>
-    //   <td>Nome</td>
-    //   <td>Estado</td>
-    //   <td>Ações</td>
-    // </tr>
-    // </>
   );
 }
 

@@ -1,4 +1,5 @@
 import { tableData } from "../../AppData";
+import "./styles.scss";
 
 export default function Table() {
   return (
@@ -13,7 +14,7 @@ export default function Table() {
           <tr>
             <td>{ item.name }</td>
             <td>{ item.state }</td>
-            <td> 
+            <td className="ButtonsTable"> 
               <button>Editar</button>
               <button>Excluir</button>
             </td>

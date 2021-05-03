@@ -9,11 +9,15 @@
   }
 }
 
-.filter-table {
-  display: inline-block;
-  padding: 4px;
+div .filter-table {
+  display: inline-flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 1px;
+  padding: 5px;
   border: 1px solid #3f3e3e;
   border-radius: 20px;
+  float: right;
 
   svg {
     margin-left: 6px;
@@ -25,5 +29,6 @@
   input {
     border: none;
     outline: 0;
+    font-size: 9px;
   }
 }
