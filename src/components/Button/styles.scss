@@ -6,10 +6,15 @@ button {
   font-size: 12px;
   padding: 3px 20px;
   font-family: "Lexend", sans-serif;
-  transition: background 0.12s;
 
-  &:hover {
+  &:not(:disabled):hover {
     background: #00bfff;
     cursor: pointer;
+    transition: background 0.12s;
+  }
+
+  &:disabled {
+    filter: grayscale(100%) !important;
+    cursor: not-allowed;
   }
 }

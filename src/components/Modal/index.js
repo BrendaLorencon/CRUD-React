@@ -1,25 +1,40 @@
-import "./styles.scss"
+import "./styles.scss";
 
-export function Modal ({ title, children, isOpen, setIsOpen }) {
-
+export function Modal({
+  title,
+  children,
+  isOpen,
+  setIsOpen,
+  disabled,
+  onSave,
+}) {
   if (!isOpen) {
-    return <></>
+    return <></>;
   }
 
-  return(
+  return (
     <div className="modal-container">
       <div className="modal">
         <header>
-          <h1>{ title }</h1>
+          <h1>{title}</h1>
         </header>
-        <main>
-          { children }
-        </main>
+        <main>{children}</main>
         <footer>
-          <button className="btn-cancel" onClick={ () => setIsOpen(false) }>Cancelar</button>
-          <button className="btn-ok">Ok</button>
+          <button className="btn-cancel" onClick={() => setIsOpen(false)}>
+            Cancelar
+          </button>
+          <button
+            className="btn-ok"
+            disabled={disabled}
+            onClick={() => {
+              onSave();
+              setIsOpen(false);
+            }}
+          >
+            Salvar
+          </button>
         </footer>
       </div>
     </div>
-  )
+  );
 }

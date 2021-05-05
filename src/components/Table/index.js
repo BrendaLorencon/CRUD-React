@@ -1,10 +1,11 @@
-import { tableData } from "../../AppData";
 import "./styles.scss";
 
-export default function Table() {
+export default function Table( { rows }) {
+
+
   return (
     <table>
-      <thead>
+      <thead id="table-dados">
         <tr>
           <th>Nome</th>
           <th>Estado</th>
@@ -12,13 +13,13 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        {tableData.map((item) => (
+        {rows.map((item) => (
           <tr key={item.id}>
             <td>{item.name}</td>
             <td>{item.state}</td>
             <td className="buttons-table">
-              <button>Editar</button>
-              <button>Excluir</button>
+              <button onClick={ console.log("OI")}>Editar</button>
+              <button onClick={ delete("")}>Excluir</button>
             </td>
           </tr>
         ))}
