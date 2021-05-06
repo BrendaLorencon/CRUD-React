@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Button from "./components/Button";
 import "./AppStyles.scss";
@@ -10,9 +10,19 @@ import { tableData } from "./AppData";
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [name, setName] = useState("");
-  const [income, setIncome] = useState("");
+  const [income, setIncome] = useState(null);
   const [state, setState] = useState("SP");
   const [items, setItems] = useState(tableData);
+  const [currentItem, setCurrentItem] = useState(null);
+
+  useEffect(() => {
+    if(!modalIsOpen){
+      setName('');
+      setState('');
+      setIncome('');
+      setCurrentItem(null);
+    }
+  }, [modalIsOpen]);
 
   // function onDelete(id) => {
   //   const tempDatas = this.state.setItems.filter(item => item.id !== id);
@@ -45,6 +55,13 @@ function App() {
             setItems([...items]);
           }
         }}
+        onEdit={(item) => {
+          setModalIsOpen(true);
+          setCurrentItem(item);
+          setName(item.name);
+          setState(item.state);
+          setIncome(item.income);
+        }}
       />
 
       <Modal
@@ -53,6 +70,8 @@ function App() {
         setIsOpen={setModalIsOpen}
         disabled={!name || !state || !income}
         onSave={() => {
+
+         if(currentItem === null){
           setItems([
             ...items,
             {
@@ -61,7 +80,19 @@ function App() {
               income,
             },
           ]);
-        }}
+         }else {
+
+          let index = items.indexOf(currentItem);
+          items.splice(index, 1, 
+            {
+              ...currentItem,
+              name,
+              state,
+              income
+          });
+          setItems([...items]);
+          
+        }}}
       >
         <div>
           <label>Nome:</label>
@@ -75,11 +106,20 @@ function App() {
         <div>
           <label>Estado:</label>
           <select
-            defaultValue="SP"
+            defaultValue={ state }
             onChange={(event) => setState(event.target.value)}
           >
+            
+            <option>AC</option>
             <option>SP</option>
             <option>MG</option>
+            <option>RJ</option>
+            <option>SC</option>
+            <option>MS</option>
+            <option>PR</option>
+            <option>PA</option>
+            
+
           </select>
         </div>
         <div>
