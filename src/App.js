@@ -13,13 +13,13 @@ function App() {
   const [income, setIncome] = useState("");
   const [state, setState] = useState("SP");
   const [items, setItems] = useState(tableData);
-  
-  function buttonDelete (id) {
-    fetch(`${this.Url}/${id}`, {method: 'DELETE'})
-    .then(response => response.json())
-    .then(rows => console.log(rows))
-    .catch(e => console.log(e));
-  }
+
+  // function onDelete(id) => {
+  //   const tempDatas = this.state.setItems.filter(item => item.id !== id);
+  //   // this.setState({
+  //     setItems: tempDatas
+  //   })
+  // }
 
   return (
     <>
@@ -35,7 +35,18 @@ function App() {
         <input type="text" placeholder="Busca por nome" />
       </div>
 
-      <Table rows={items} />
+      <Table
+        rows={items}
+        onDelete={(item) => {
+          // eslint-disable-next-line no-restricted-globals
+          if (confirm("Você deseja excluir esse registro?")) {
+            let index = items.indexOf(item);
+            items.splice(index, 1);
+            setItems([...items]);
+          }
+        }}
+      />
+
       <Modal
         isOpen={modalIsOpen}
         title=">Incluir um registro<"
@@ -54,9 +65,9 @@ function App() {
       >
         <div>
           <label>Nome:</label>
-          <input 
+          <input
             type="text"
-            maxLength= '50'
+            maxLength="50"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />

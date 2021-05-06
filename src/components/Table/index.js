@@ -1,6 +1,6 @@
 import "./styles.scss";
 
-export default function Table( { rows }) {
+export default function Table( { rows, onDelete } ) {
 
 
   return (
@@ -19,7 +19,7 @@ export default function Table( { rows }) {
             <td>{item.state}</td>
             <td className="buttons-table">
               <button onClick={ console.log("OI")}>Editar</button>
-              <button onClick={ delete("")}>Excluir</button>
+              <button onClick={() => onDelete(item)}>Excluir</button>
             </td>
           </tr>
         ))}
