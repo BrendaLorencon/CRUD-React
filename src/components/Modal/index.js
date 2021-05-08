@@ -1,3 +1,4 @@
+import Button from "../Button";
 import "./styles.scss";
 
 export function Modal({
@@ -20,19 +21,17 @@ export function Modal({
         </header>
         <main>{children}</main>
         <footer>
-          <button className="btn-cancel" onClick={() => setIsOpen(false)}>
-            Cancelar
-          </button>
-          <button
+          <Button className="btn-cancel" title="Cancelar" onClick={() => setIsOpen(false)}/>
+          <Button
             className="btn-ok"
             disabled={disabled}
+            title="Salvar"
             onClick={() => {
               onSave();
               setIsOpen(false);
-            }}
-          >
-            Salvar
-          </button>
+            }
+          }
+          />
         </footer>
       </div>
     </div>
