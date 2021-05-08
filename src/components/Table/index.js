@@ -1,4 +1,4 @@
-import "./styles.scss";
+import "./table.scss";
 
 export default function Table( { rows, onDelete, onEdit } ) {
 
@@ -7,9 +7,9 @@ export default function Table( { rows, onDelete, onEdit } ) {
     <table>
       <thead id="table-dados">
         <tr>
-          <th>Nome</th>
-          <th>Estado</th>
-          <th width="170px">Ações</th>
+          <th width="500px">Nome</th>
+          <th width="500px">Estado</th>
+          <th width="200px">Ações</th>
         </tr>
       </thead>
       <tbody>

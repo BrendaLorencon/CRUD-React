@@ -1,7 +1,7 @@
-import './styles.scss';
+import './button.scss';
 
 export default function Button(props){ 
   return (
-    <button onClick={props.onClick}>{props.title}</button>
+    <button className="button" onClick={props.onClick}>{props.title}</button>
   )
 } 
