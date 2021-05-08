@@ -16,10 +16,10 @@ function App() {
   const [currentItem, setCurrentItem] = useState(null);
 
   useEffect(() => {
-    if (!modalIsOpen) {
-      setName("");
-      setState("");
-      setIncome("");
+    if(!modalIsOpen){
+      setName('');
+      setState('');
+      setIncome('');
       setCurrentItem(null);
     }
   }, [modalIsOpen]);
@@ -70,26 +70,29 @@ function App() {
         setIsOpen={setModalIsOpen}
         disabled={!name || !state || !income}
         onSave={() => {
-          if (currentItem === null) {
-            setItems([
-              ...items,
-              {
-                name,
-                state,
-                income,
-              },
-            ]);
-          } else {
-            let index = items.indexOf(currentItem);
-            items.splice(index, 1, {
-              ...currentItem,
+
+         if(currentItem === null){
+          setItems([
+            ...items,
+            {
               name,
               state,
               income,
-            });
-            setItems([...items]);
-          }
-        }}
+            },
+          ]);
+         }else {
+
+          let index = items.indexOf(currentItem);
+          items.splice(index, 1, 
+            {
+              ...currentItem,
+              name,
+              state,
+              income
+          });
+          setItems([...items]);
+          
+        }}}
       >
         <div>
           <label>Nome:</label>
@@ -103,9 +106,10 @@ function App() {
         <div>
           <label>Estado:</label>
           <select
-            defaultValue={state}
+            defaultValue={ state }
             onChange={(event) => setState(event.target.value)}
           >
+            
             <option>AC</option>
             <option>SP</option>
             <option>MG</option>
@@ -114,6 +118,8 @@ function App() {
             <option>MS</option>
             <option>PR</option>
             <option>PA</option>
+            
+
           </select>
         </div>
         <div>
