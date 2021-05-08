@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import Table from "./components/Table";
 import { Modal } from "./components/Modal";
 import { tableData } from "./AppData";
+import ModalHiguerIncome from "./components/ModalHiguerIncome";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -14,15 +15,26 @@ function App() {
   const [state, setState] = useState("SP");
   const [items, setItems] = useState(tableData);
   const [currentItem, setCurrentItem] = useState(null);
+  const [modalHiguerIsOpen, setModalHiguerIsOpen] = useState(false);
+  const higuerIncomes = tableData.filter((item, index, array) => Math.max(item.income));
 
   useEffect(() => {
-    if(!modalIsOpen){
-      setName('');
-      setState('');
-      setIncome('');
+    if (!modalIsOpen) {
+      setName("");
+      setState("");
+      setIncome("");
       setCurrentItem(null);
     }
   }, [modalIsOpen]);
+
+  useEffect(() => {
+    if (!modalHiguerIsOpen) {
+      setName("");
+      setState("");
+      setIncome("");
+      setCurrentItem(null);
+    }
+  }, [modalHiguerIsOpen]);
 
   // function onDelete(id) => {
   //   const tempDatas = this.state.setItems.filter(item => item.id !== id);
@@ -37,7 +49,10 @@ function App() {
       <div className="buttons-action">
         <Button title="Incluir" onClick={() => setModalIsOpen(true)} />
         <Button title="Valores por estado" />
-        <Button title="Maiores rendas" />
+        <Button
+          title="Maiores rendas"
+          onClick={() => setModalHiguerIsOpen(true)}
+        />
       </div>
 
       <div className="filter-table">
@@ -70,29 +85,26 @@ function App() {
         setIsOpen={setModalIsOpen}
         disabled={!name || !state || !income}
         onSave={() => {
-
-         if(currentItem === null){
-          setItems([
-            ...items,
-            {
-              name,
-              state,
-              income,
-            },
-          ]);
-         }else {
-
-          let index = items.indexOf(currentItem);
-          items.splice(index, 1, 
-            {
+          if (currentItem === null) {
+            setItems([
+              ...items,
+              {
+                name,
+                state,
+                income,
+              },
+            ]);
+          } else {
+            let index = items.indexOf(currentItem);
+            items.splice(index, 1, {
               ...currentItem,
               name,
               state,
-              income
-          });
-          setItems([...items]);
-          
-        }}}
+              income,
+            });
+            setItems([...items]);
+          }
+        }}
       >
         <div>
           <label>Nome:</label>
@@ -106,10 +118,9 @@ function App() {
         <div>
           <label>Estado:</label>
           <select
-            defaultValue={ state }
+            defaultValue={state}
             onChange={(event) => setState(event.target.value)}
           >
-            
             <option>AC</option>
             <option>SP</option>
             <option>MG</option>
@@ -118,8 +129,6 @@ function App() {
             <option>MS</option>
             <option>PR</option>
             <option>PA</option>
-            
-
           </select>
         </div>
         <div>
@@ -131,6 +140,14 @@ function App() {
           />
         </div>
       </Modal>
+
+      <ModalHiguerIncome
+        rows={items}
+        isOpen={modalHiguerIsOpen}
+        title=">Maiores Rendas<"
+        setIsOpen={setModalHiguerIsOpen}
+        higuerIncomes
+      />
     </>
   );
 }

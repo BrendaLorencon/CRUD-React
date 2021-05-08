@@ -9,7 +9,7 @@ export const tableData = [
     id: 2,
     name: 'Lurline',
     state: 'SP',
-    income: 1400.00,
+    income: 1400.05,
   },
   {
     id: 3,
@@ -51,7 +51,7 @@ export const tableData = [
     id: 9,
     name: 'Blake',
     state: 'SC',
-    income: 5000.00,
+    income: 5000.03,
   },
   {
     id: 10,
