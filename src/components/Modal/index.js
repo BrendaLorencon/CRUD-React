@@ -21,7 +21,11 @@ export function Modal({
         </header>
         <main>{children}</main>
         <footer>
-          <Button className="btn-cancel" title="Cancelar" onClick={() => setIsOpen(false)}/>
+          <Button
+            className="btn-cancel"
+            title="Cancelar"
+            onClick={() => setIsOpen(false)}
+          />
           <Button
             className="btn-ok"
             disabled={disabled}
@@ -29,8 +33,7 @@ export function Modal({
             onClick={() => {
               onSave();
               setIsOpen(false);
-            }
-          }
+            }}
           />
         </footer>
       </div>

@@ -7,6 +7,7 @@ import Table from "./components/Table";
 import { Modal } from "./components/Modal";
 import { tableData } from "./AppData";
 import ModalHiguerIncome from "./components/ModalHiguerIncome";
+import ModalValuesStates from "./components/ModalValuesStates";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -16,7 +17,7 @@ function App() {
   const [items, setItems] = useState(tableData);
   const [currentItem, setCurrentItem] = useState(null);
   const [modalHiguerIsOpen, setModalHiguerIsOpen] = useState(false);
-  const higuerIncomes = tableData.filter((item, index, array) => Math.max(item.income));
+  const [modalValuesStatesIsOpen, setModalValuesStatesIsOpen] = useState(false);
 
   useEffect(() => {
     if (!modalIsOpen) {
@@ -36,6 +37,14 @@ function App() {
     }
   }, [modalHiguerIsOpen]);
 
+  useEffect(() => {
+    if (!modalValuesStatesIsOpen) {
+      setName("");
+      setState("");
+      setIncome("");
+      setCurrentItem(null);
+    }
+  }, [modalValuesStatesIsOpen]);
   // function onDelete(id) => {
   //   const tempDatas = this.state.setItems.filter(item => item.id !== id);
   //   // this.setState({
@@ -48,7 +57,10 @@ function App() {
       <Header />
       <div className="buttons-action">
         <Button title="Incluir" onClick={() => setModalIsOpen(true)} />
-        <Button title="Valores por estado" />
+        <Button
+          title="Valores por estado"
+          onClick={() => setModalValuesStatesIsOpen(true)}
+        />
         <Button
           title="Maiores rendas"
           onClick={() => setModalHiguerIsOpen(true)}
@@ -146,10 +158,18 @@ function App() {
         isOpen={modalHiguerIsOpen}
         title=">Maiores Rendas<"
         setIsOpen={setModalHiguerIsOpen}
- 
       >
-          <Table rows={items}></Table>
+
       </ModalHiguerIncome>
+
+      <ModalValuesStates
+        rows={items}
+        isOpen={modalValuesStatesIsOpen}
+        title=">Valores por estado<"
+        setIsOpen={setModalValuesStatesIsOpen}
+      >
+
+      </ModalValuesStates>
     </>
   );
 }

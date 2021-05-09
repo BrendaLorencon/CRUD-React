@@ -1,7 +1,7 @@
 import Button from "../Button";
-import "./modalHiguerIncome.scss";
+import "./modalValuesStates.scss";
 
-export default function ModalHiguerIncome({
+export default function ModalValuesStates({
   rows,
   title,
   children,

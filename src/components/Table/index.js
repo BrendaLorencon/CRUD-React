@@ -1,8 +1,6 @@
 import "./table.scss";
 
-export default function Table( { rows, onDelete, onEdit } ) {
-
-
+export default function Table({ rows, onDelete, onEdit }) {
   return (
     <table>
       <thead id="table-dados">
@@ -20,7 +18,7 @@ export default function Table( { rows, onDelete, onEdit } ) {
             <td>{item.state}</td>
             <td>{item.income}</td>
             <td className="buttons-table">
-              <button onClick={ () => onEdit(item) }>Editar</button>
+              <button onClick={() => onEdit(item)}>Editar</button>
               <button onClick={() => onDelete(item)}>Excluir</button>
             </td>
           </tr>
