@@ -146,8 +146,10 @@ function App() {
         isOpen={modalHiguerIsOpen}
         title=">Maiores Rendas<"
         setIsOpen={setModalHiguerIsOpen}
-        higuerIncomes
-      />
+ 
+      >
+          <Table rows={items}></Table>
+      </ModalHiguerIncome>
     </>
   );
 }
