@@ -16,5 +16,42 @@
    yarn start
    ```
 
-4. Caso não de certo a execução aqui está o projeto hospedado no netlify
+
+### Funcionais:
+
+- [x] Tela no estilo CRUD
+
+- [x] Dados Mocados
+
+- [x] Tabela de visualização de dados
+
+- [x] Botão incluir novo registro
+
+- [x] Modal de incluir registro com consistências
+
+- [x] Botão de editar
+
+- [x] Função de editar um registro
+
+- [x] Botões de Cancelar e Salvar
+
+- [x] Botão de Excluir
+
+- [x] Função de excluir um registro/ com exibição de mensagem para confirmar
+
+- [x] Botão valores por estado
+
+- [x] Botão Maiores rendas
+
+  #### Não foram feitos
+
+- [ ] Função maiores rendas
+
+- [ ] Função valores por estado
+
+  Obs: estes tópicos do teste não estão funcionais.
+
+  
+
+
 
