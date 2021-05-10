@@ -8,6 +8,7 @@ import { Modal } from "./components/Modal";
 import { tableData } from "./AppData";
 import ModalHiguerIncome from "./components/ModalHiguerIncome";
 import ModalValuesStates from "./components/ModalValuesStates";
+import Router from "./Router";
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -54,6 +55,7 @@ function App() {
 
   return (
     <>
+    <Router />
       <Header />
       <div className="buttons-action">
         <Button title="Incluir" onClick={() => setModalIsOpen(true)} />
