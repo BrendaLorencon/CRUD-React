@@ -4,10 +4,14 @@
 
 1.  Abra o Visual Studio Code
 
-2. No terminal do VSCODE, instalar  este comando 
+2. No terminal do VSCODE, instalar  estes comandos 
 
    ```
    npm install --global yarn
+   
+   yarn
+   
+   npm install
    ```
 
 3. Logo em seguida executar o comando abaixo para iniciar o projeto. 
